@@ -75,30 +75,30 @@ def parse_file(requirementFile):
 
 
 
-class TestCommand(BaseTestCommand):
-  user_options = [("pytest-args=", "a", "Arguments to pass to py.test")]
+# class TestCommand(BaseTestCommand):
+#   user_options = [("pytest-args=", "a", "Arguments to pass to py.test")]
 
 
-  def initialize_options(self):
-    BaseTestCommand.initialize_options(self)
-    self.pytest_args = ["unit"] # pylint: disable=W0201
+#   def initialize_options(self):
+#     BaseTestCommand.initialize_options(self)
+#     self.pytest_args = ["unit"] # pylint: disable=W0201
 
 
-  def finalize_options(self):
-    BaseTestCommand.finalize_options(self)
-    self.test_args = []
-    self.test_suite = True
+#   def finalize_options(self):
+#     BaseTestCommand.finalize_options(self)
+#     self.test_args = []
+#     self.test_suite = True
 
 
-  def run_tests(self):
-    import pytest
-    cwd = os.getcwd()
-    try:
-      os.chdir("tests")
-      errno = pytest.main(self.pytest_args)
-    finally:
-      os.chdir(cwd)
-    sys.exit(errno)
+#   def run_tests(self):
+#     import pytest
+#     cwd = os.getcwd()
+#     try:
+#       os.chdir("tests")
+#       errno = pytest.main(self.pytest_args)
+#     finally:
+#       os.chdir(cwd)
+#     sys.exit(errno)
 
 
 
@@ -132,19 +132,19 @@ if __name__ == "__main__":
     package_dir = {"": "src"},
     packages=find_packages("src"),
     namespace_packages = ["nupic"],
-    package_data={
-      "nupic.support": ["nupic-default.xml",
-                        "nupic-logging.conf"],
-      "nupic": ["README.md", "LICENSE.txt"],
-      "nupic.data": ["*.json"],
-      "nupic.frameworks.opf.exp_generator": ["*.json", "*.tpl"],
-      "nupic.frameworks.opf.jsonschema": ["*.json"],
-      "nupic.swarming.exp_generator": ["*.json", "*.tpl"],
-      "nupic.swarming.jsonschema": ["*.json"],
-      "nupic.datafiles": ["*.csv", "*.txt"],
-    },
-    cmdclass = {"test": TestCommand},
-    include_package_data=True,
+    # package_data={
+    #   "nupic.support": ["nupic-default.xml",
+    #                     "nupic-logging.conf"],
+    #   "nupic": ["README.md", "LICENSE.txt"],
+    #   "nupic.data": ["*.json"],
+    #   "nupic.frameworks.opf.exp_generator": ["*.json", "*.tpl"],
+    #   "nupic.frameworks.opf.jsonschema": ["*.json"],
+    #   "nupic.swarming.exp_generator": ["*.json", "*.tpl"],
+    #   "nupic.swarming.jsonschema": ["*.json"],
+    #   "nupic.datafiles": ["*.csv", "*.txt"],
+    # },
+    # cmdclass = {"test": TestCommand},
+    # include_package_data=True,
     zip_safe=False,
     extras_require = {
       # Default requirement based on system type
