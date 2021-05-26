@@ -102,6 +102,14 @@ class AnomalyLikelihoodRegion(PyRegion, Serializable):
           "defaultValue": 100,
           "accessMode": "ReadWrite"
         },
+        "averagingWindow": {
+          "description": "integer number of records to average over",
+          "dataType": "UInt32",
+          "count": 1,
+          "constraints": "",
+          "defaultValue": 1,
+          "accessMode": "ReadWrite"
+        },
       },
       "commands": {
       },
@@ -112,12 +120,14 @@ class AnomalyLikelihoodRegion(PyRegion, Serializable):
                learningPeriod = 288,
                estimationSamples = 100,
                historicWindowSize = 8640,
-               reestimationPeriod = 100):
+               reestimationPeriod = 100,
+               averagingWindow = 1):
     self.anomalyLikelihood = AnomalyLikelihood(
       learningPeriod = learningPeriod,
       estimationSamples = estimationSamples,
       historicWindowSize = historicWindowSize,
-      reestimationPeriod = reestimationPeriod)
+      reestimationPeriod = reestimationPeriod,
+      averagingWindow = averagingWindow)
 
   def __eq__(self, other):
     return self.anomalyLikelihood == other.anomalyLikelihood

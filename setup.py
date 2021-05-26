@@ -133,26 +133,12 @@ if __name__ == "__main__":
     packages=find_packages("src"),
     namespace_packages = ["nupic"],
     package_data={
-      "nupic.support": ["nupic-default.xml",
-                        "nupic-logging.conf"],
-      "nupic": ["README.md", "LICENSE.txt"],
-      "nupic.data": ["*.json"],
-      "nupic.frameworks.opf.exp_generator": ["*.json", "*.tpl"],
-      "nupic.frameworks.opf.jsonschema": ["*.json"],
-      "nupic.swarming.exp_generator": ["*.json", "*.tpl"],
-      "nupic.swarming.jsonschema": ["*.json"],
-      "nupic.datafiles": ["*.csv", "*.txt"],
+      "": ["*.capnp", "*.csv"],
     },
-    # cmdclass = {"test": TestCommand},
     include_package_data=True,
     zip_safe=False,
     extras_require = {
-      # Default requirement based on system type
-      ":platform_system=='Linux' or platform_system=='Darwin'":
-        ["pycapnp==0.6.3"],
-
-      # Superseded by platform_system-conditional requirement, but keeping
-      # empty extra for compatibility as recommended by setuptools doc.
+      ":platform_system=='Linux' or platform_system=='Darwin'":["pycapnp==0.6.3"],
       "capnp": [],
       "viz": ["networkx", "matplotlib", "pygraphviz"]
     },
