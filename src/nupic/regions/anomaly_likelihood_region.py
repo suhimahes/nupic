@@ -107,7 +107,7 @@ class AnomalyLikelihoodRegion(PyRegion, Serializable):
           "dataType": "UInt32",
           "count": 1,
           "constraints": "",
-          "defaultValue": 1,
+          "defaultValue": 10,
           "accessMode": "ReadWrite"
         },
       },
@@ -121,7 +121,7 @@ class AnomalyLikelihoodRegion(PyRegion, Serializable):
                estimationSamples = 100,
                historicWindowSize = 8640,
                reestimationPeriod = 100,
-               averagingWindow = 1):
+               averagingWindow = 10):
     self.anomalyLikelihood = AnomalyLikelihood(
       learningPeriod = learningPeriod,
       estimationSamples = estimationSamples,

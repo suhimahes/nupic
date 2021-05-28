@@ -126,7 +126,7 @@ if __name__ == "__main__":
   requirements = findRequirements()
 
   setup(
-    name="nupic",
+    name="anomalyHTM",
     version=getVersion(),
     install_requires=requirements,
     package_dir = {"": "src"},
@@ -145,7 +145,7 @@ if __name__ == "__main__":
     description="Numenta Platform for Intelligent Computing",
     author="Numenta",
     author_email="help@numenta.org",
-    url="https://github.com/numenta/nupic",
+    url=["https://github.com/numenta/nupic","https://github.com/suhimahes/nupic"],
     classifiers=[
       "Programming Language :: Python",
       "Programming Language :: Python :: 2",

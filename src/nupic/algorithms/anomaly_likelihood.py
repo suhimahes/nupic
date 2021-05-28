@@ -153,7 +153,7 @@ class AnomalyLikelihood(Serializable):
                estimationSamples=100,
                historicWindowSize=8640,
                reestimationPeriod=100,
-               averagingWindow =1):
+               averagingWindow =10):
     """
     NOTE: Anomaly likelihood scores are reported at a flat 0.5 for
     learningPeriod + estimationSamples iterations.
@@ -407,7 +407,7 @@ class AnomalyLikelihood(Serializable):
 
 
 def estimateAnomalyLikelihoods(anomalyScores,
-                               averagingWindow=1,
+                               averagingWindow=10,
                                skipRecords=0,
                                verbosity=0):
   """
